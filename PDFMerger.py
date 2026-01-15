@@ -16,19 +16,6 @@ def show_about():
         "Licensed under MIT."
     )
 
-# --- GUI Setup ---
-root = tk.Tk()
-# This adds the version to the top bar of the window
-root.title(f"{APP_NAME} - v{VERSION}")
-root.geometry("500x450")
-
-# --- ADDING A MENU BAR ---
-menubar = tk.Menu(root)
-helpmenu = tk.Menu(menubar, tearoff=0)
-helpmenu.add_command(label="About", command=show_about)
-menubar.add_cascade(label="Help", menu=helpmenu)
-root.config(menu=menubar)
-
 # --- Functions ---
 def add_files():
     """Allows user to select multiple files and adds them to the list."""
@@ -131,8 +118,16 @@ def merge_pdfs():
 
 # --- GUI Setup ---
 root = tk.Tk()
-root.title("PDF Merger Utility")
-root.geometry("500x400")
+# This adds the version to the top bar of the window
+root.title(f"{APP_NAME} - v{VERSION}")
+root.geometry("500x450")
+
+# --- ADDING A MENU BAR ---
+menubar = tk.Menu(root)
+helpmenu = tk.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=show_about)
+menubar.add_cascade(label="Help", menu=helpmenu)
+root.config(menu=menubar)
 
 # 1. The Listbox (The "Staging Area")
 frame_list = tk.Frame(root)
