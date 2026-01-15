@@ -1,105 +1,70 @@
 # PDF Merger Utility
 
-A lightweight, user-friendly Windows desktop application built with Python to combine multiple PDF files into a single document. This tool allows users to import PDFs, reorder them manually to ensure the correct sequence, and export the final result with one click.
+A lightweight, user-friendly Windows desktop application built with Python to combine multiple PDF files into a single document. Version 2.0.0 introduces a modern Drag-and-Drop interface and workflow automation.
 
-## ✨ Features
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-* **Batch Import:** Add multiple PDF files at once.
-* **Manual Reordering:** Use "Move Up" and "Move Down" buttons to organize your files exactly how you want them in the final document.
-* **Remove Tool:** Easily remove accidental additions from the list.
-* **Clean UI:** Simple, no-nonsense interface for quick tasks.
-* **Open Source:** Free to use, modify, and distribute under the MIT License.
+## ✨ New in v2.0.0
+* **Drag & Drop Support:** You can now drag files directly from your desktop into the app window.
+* **Auto-Open:** The folder containing your merged file opens automatically after processing.
+* **UI Improvements:** Added version badge and instructional prompts.
 
-## 🚀 Getting Started
+## 🚀 Features
+* **Batch Import:** Add multiple PDF files via file browser or Drag & Drop.
+* **Manual Reordering:** Use "Move Up" and "Move Down" buttons to ensure the perfect page sequence.
+* **Smart Parsing:** Automatically handles file paths even if they contain spaces.
+* **Standalone Utility:** Can be built into a single `.exe` file that runs without Python installed.
+
+## 🛠️ Installation & Setup
 
 ### Prerequisites
+To run the source code, you need **Python 3.x** and the following libraries:
 
-To run this tool from the source code, you need:
-
-* **Python 3.x** installed on your system.
-* The `pypdf` library.
-
-### Installation
-
-1. **Clone the repository:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/PDF-Merger-Utility.git
-cd PDF-Merger-Utility
-
+pip install pypdf tkinterdnd2 pyinstaller
 ```
 
+### Running the App
 
-2. **Install dependencies:**
 ```bash
-pip install pypdf
-
+python PDFMerger_v2.py
 ```
 
+## 📦 How to Build the Executable (.exe)
 
-3. **Run the application:**
+**Important:** Because this version uses `tkinterdnd2` for drag-and-drop, the build command is different from standard Python scripts. You must use the `--collect-all` flag to include the necessary system hooks.
+
+1. Open your terminal/command prompt.
+2. Run the following command:
 ```bash
-python PDFMerger.py
-
+pyinstaller --noconsole --onefile --collect-all tkinterdnd2 PDFMerger_v2.py
 ```
 
-
-
----
+3. Your standalone application will appear in the `dist/` folder.
 
 ## 📖 User Guide
 
-Using the PDF Merger is straightforward:
-
-1. **Add Files:** Click the **Add Files...** button to select the PDFs you want to combine.
-2. **Organize:** * Click on a file name in the list to select it.
-* Click **Move Up ↑** or **Move Down ↓** to change the order. The final PDF will be merged from top to bottom.
-
-
-3. **Remove:** If you made a mistake, select the file and click **Remove Selected**.
-4. **Merge:** Click the green **MERGE PDFS** button. A window will pop up asking you where to save your new file and what to name it.
-5. **Success:** Once the process is complete, a success message will appear.
-
----
-
-## 🛠️ How to Build an Executable (.exe)
-
-If you want to create a standalone version that runs without Python:
-
-1. Install PyInstaller: `pip install pyinstaller`
-2. Run: `pyinstaller --onefile --noconsole PDFMerger.py`
-3. Find your `PDFMerger.exe` in the `dist` folder.
-
----
+1. **Launch:** Open `PDFMerger Utility`.
+2. **Add Files:** Drag PDF files into the white box, or click **➕ Add Manually**.
+3. **Organize:** Select a file and use the **↑** or **↓** arrows to change the order.
+4. **Merge:** Click **MERGE NOW**.
+5. **Finish:** Choose a save location. The folder will open automatically once done.
 
 ## 📄 License
-
-This project is licensed under the **MIT License**.
-
-```text
-MIT License
-
-Copyright (c) 2026 Yuth Set
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-```
+This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
 
 ---
-## Current Version
-**v1.0.0** (Initial Release)
+
+### 🚀 Major Update: v2.0.0
+
+This release focuses on User Experience (UX) improvements, making it faster and easier to merge documents.
+
+### 🆕 What's New
+- **Drag & Drop Support:** Completely replaced the static list view with a Drop-enabled zone. Users can now drag PDFs directly from Explorer into the app.
+- **Workflow Automation:** The application now automatically opens the destination folder after a successful merge, saving you the extra clicks to find your file.
+- **UI Polish:** Added clear instructional text and a version badge to the interface.
+- **Bug Fixes:** Improved file path parsing for filenames containing spaces.
+
+### 📦 How to Use
+Download the `PDFMerger.exe` attached below. No installation is required—just double-click and run!
